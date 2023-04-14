@@ -24,9 +24,9 @@ import com.google.common.util.concurrent.UncheckedExecutionException;
 /**
  * @author fanliwen
  */
-public class RedisCache<K, V> extends AbstractLoadingCache<K, V> implements LoadingCache<K, V> {
+public class JedisCache<K, V> extends AbstractLoadingCache<K, V> implements LoadingCache<K, V> {
 
-    static final Logger logger = Logger.getLogger(RedisCache.class.getName());
+    static final Logger logger = Logger.getLogger(JedisCache.class.getName());
 
     private final JedisPool jedisPool;
 
@@ -40,7 +40,7 @@ public class RedisCache<K, V> extends AbstractLoadingCache<K, V> implements Load
 
     private final CacheLoader<K, V> loader;
 
-    public RedisCache(
+    public JedisCache(
             JedisPool jedisPool,
             Serializer keySerializer,
             Serializer valueSerializer,
@@ -49,7 +49,7 @@ public class RedisCache<K, V> extends AbstractLoadingCache<K, V> implements Load
         this(jedisPool, keySerializer, valueSerializer, keyPrefix, expiration, null);
     }
 
-    public RedisCache(
+    public JedisCache(
             JedisPool jedisPool,
             Serializer keySerializer,
             Serializer valueSerializer,
