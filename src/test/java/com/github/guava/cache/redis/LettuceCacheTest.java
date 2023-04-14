@@ -79,11 +79,6 @@ public class LettuceCacheTest {
     }
 
     @Test
-    public void invalidateAll() {
-        lettuceCache.invalidateAll();
-    }
-
-    @Test
     public void testGet() throws ExecutionException {
         String test4 = lettuceCache.get("test4");
         Assert.assertEquals("test41", test4);

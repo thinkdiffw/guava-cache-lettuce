@@ -1,14 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.levyfan</groupId>
-    <artifactId>guava-cache-redis</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <groupId>io.github.thinkdiffw</groupId>
+    <artifactId>guava-cache-lettuce</artifactId>
+    <version>0.0.4</version>
     <packaging>jar</packaging>
 
-    <name>guava-cache-redis</name>
-    <description>implement guava cache interface backed by redis</description>
-    <url>https://github.com/levyfan/guava-cache-redis</url>
+    <name>guava-cache-lettuce</name>
+    <description>implement guava cache interface backed by redis(lettuce or jedis)</description>
+    <url>https://github.com/thinkdiffw/guava-cache-lettuce</url>
 
     <licenses>
         <license>
@@ -28,17 +29,21 @@
     </developers>
 
     <scm>
-        <url>https://github.com/levyfan/guava-cache-redis</url>
-        <connection>scm:git:https://github.com/levyfan/guava-cache-redis.git</connection>
-        <developerConnection>scm:git:https://github.com/levyfan/guava-cache-redis.git</developerConnection>
-        <tag>guava-cache-redis-0.0.1</tag>
+        <url>https://github.com/thinkdiffw/guava-cache-lettuce</url>
+        <connection>scm:git:https://github.com/thinkdiffw/guava-cache-lettuce.git</connection>
+        <developerConnection>scm:git:https://github.com/thinkdiffw/guava-cache-lettuce.git</developerConnection>
+        <tag>guava-cache-lettuce-0.0.4</tag>
     </scm>
 
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
     </distributionManagement>
 
     <build>
@@ -46,6 +51,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>
@@ -109,7 +115,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>

@@ -1,20 +1,20 @@
-# guava-cache-redis
-Implement guava cache interface backed by redis. Guava provide memory cache implementation. We provide redis cache implementation.
+# guava-cache-lettuce
+Implement guava cache interface backed by redis (lettuce or jedis). Guava provide memory cache implementation. We provide redis cache implementation.
 
 Please read [guava caches explained](https://github.com/google/guava/wiki/CachesExplained) first.
 
 ## Howto
 ```
 <dependency>
-    <groupId>com.github.levyfan</groupId>
-    <artifactId>guava-cache-redis</artifactId>
-    <version>0.0.2</version>
+    <groupId>io.github.thinkdiffw</groupId>
+    <artifactId>guava-cache-lettuce</artifactId>
+    <version>0.0.4</version>
 </dependency>
 ```
 ### From a [CacheLoader](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/cache/CacheLoader.html)
 ```
-RedisCache<Key, Graph> redisCache = new RedisCache<>(
-  jedisPool,
+LettuceCache<Key, Graph> redisCache = new LettuceCache<>(
+  connection,
   keySerializer,
   valueSerializer,
   keyPrefix,
@@ -35,8 +35,8 @@ try {
 ```
 ### From a <a href='http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Callable.html'><code>Callable</code></a>
 ```
-RedisCache<Key, Graph> redisCache = new RedisCache<>(
-  jedisPool,
+LettuceCache<Key, Graph> redisCache = new LettuceCache<>(
+  connection,
   keySerializer,
   valueSerializer,
   keyPrefix,
